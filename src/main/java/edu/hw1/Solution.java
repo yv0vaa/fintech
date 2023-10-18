@@ -107,9 +107,13 @@ public class Solution{
         }
         return 1 + countK(a2 - a1);
     }
-    /*private static int rotateLeft(int n, int shift) {
-
-    } */
+    public static int rotateRight(int n, int shift) {
+        return (n >>> shift) | (n << (Integer.SIZE - shift));
+    } 
+    // doesnt work yet
+    public static int rotateLeft(int n, int shift) {
+        return (n << shift) | (n >>> (Integer.SIZE - shift));
+    }
     public static boolean knightBoardCapture(int[][] f){
         for (int i = 0; i < 8; i++){
             for (int j = 0; j < 8; j++){
