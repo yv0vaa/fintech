@@ -6,49 +6,56 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class MainTest{
     @Test
     private static void TestFirst(){
-        assertEquals(Solution.minutesToSeconds("01:00"), 60);
-        assertEquals(Solution.minutesToSeconds("13:56"), 836);
-        assertEquals(Solution.minutesToSeconds("10:60"), -1);
+        assertEquals(60, Solution.minutesToSeconds("01:00"));
+        assertEquals(836, Solution.minutesToSeconds("13:56"));
+        assertEquals(-1, Solution.minutesToSeconds("10:60"));
+        assertEquals(-1, Solution.minutesToSeconds("01:78"));
     }
     @Test 
     private static void TestSecond(){
-        assertEquals(Solution.countDigits(4666), 4);
-        assertEquals(Solution.countDigits(544), 3);
-        assertEquals(Solution.countDigits(0), 1);
+        assertEquals(4, Solution.countDigits(4666));
+        assertEquals(3, Solution.countDigits(544));
+        assertEquals(1, Solution.countDigits(0));
     }
     @Test
     private static void TestThird(){
         int[] a1 = new int[] {1, 2, 3, 4};
         int[]a2 = new int[] {0, 6};
-        assertEquals(Solution.isNestable(a1, a2), true);
+        assertEquals(true, Solution.isNestable(a1, a2));
         a1 = new int[] {3, 1};
         a2 = new int[] {4, 0};
-        assertEquals(Solution.isNestable(a1, a2), true);
+        assertEquals(true, Solution.isNestable(a1, a2));
         a1 = new int[] {9, 9, 8};
         a2 = new int[] {8, 9};
-        assertEquals(Solution.isNestable(a1, a2), false);
+        assertEquals(false, Solution.isNestable(a1, a2));
         a1 = new int[] {1, 2, 3, 4};
         a2 = new int[] {2, 3};
-        assertEquals(Solution.isNestable(a1, a2), false);
+        assertEquals(false, Solution.isNestable(a1, a2));
     }
     @Test
     public static void TestFourth(){
-        assertEquals(Solution.fixString("123456"), "214365");
-        assertEquals(Solution.fixString("hTsii  s aimex dpus rtni.g"), "This is a mixed up string.");  
-        assertEquals(Solution.fixString("badce"), "abcde"); 
+        assertEquals("214365", Solution.fixString("123456"));
+        assertEquals("This is a mixed up string.", Solution.fixString("hTsii  s aimex dpus rtni.g"));  
+        assertEquals("abcde", Solution.fixString("badce")); 
     }
     @Test
     public static void TestFifth(){
-        assertEquals(Solution.isPalindromeDescendant(11211230), true); // 11211230 -> 2333 -> 56 -> 11
-        assertEquals(Solution.isPalindromeDescendant(13001120), true); // 13001120 -> 4022 ➞ 44
-        assertEquals(Solution.isPalindromeDescendant(23336014), true); // 23336014 -> 5665
-        assertEquals(Solution.isPalindromeDescendant(11), true); 
+        assertEquals(true, Solution.isPalindromeDescendant(11211230)); // 11211230 -> 2333 -> 56 -> 11
+        assertEquals(true, Solution.isPalindromeDescendant(13001120)); // 13001120 -> 4022 ➞ 44
+        assertEquals(true, Solution.isPalindromeDescendant(23336014)); // 23336014 -> 5665
+        assertEquals(true, Solution.isPalindromeDescendant(11)); 
     }
     @Test
     public static void TestSixth(){
-        assertEquals(Solution.countK(6621), 5);
-        assertEquals(Solution.countK(6554), 4);
-        assertEquals(Solution.countK(1234), 3);
+        assertEquals(5, Solution.countK(6621));
+        assertEquals(4, Solution.countK(6554));
+        assertEquals(3, Solution.countK(1234));
+    }
+    @Test
+    public static void TestSevens(){
+        assertEquals(4, Solution.rotateRight(8, 1));
+        //assertEquals(1, Solution.rotateLeft(16, 1));
+        //assertEquals(6, Solution.rotateLeft(17, 2));
     }
     @Test
     public static void TestEights(){
@@ -62,7 +69,7 @@ public class MainTest{
             {0, 1, 0, 0, 0, 0, 0, 1},
             {0, 0, 0, 0, 1, 0, 0, 0}
         };
-        assertEquals(Solution.knightBoardCapture(field), true);
+        assertEquals(true, Solution.knightBoardCapture(field));
         field = new int[][]{
             {1, 0, 1, 0, 1, 0, 1, 0},
             {0, 1, 0, 1, 0, 1, 0, 1},
@@ -73,7 +80,7 @@ public class MainTest{
             {1, 0, 0, 0, 1, 0, 1, 0},
             {0, 0, 0, 1, 0, 1, 0, 1}
         };
-        assertEquals(Solution.knightBoardCapture(field), false);
+        assertEquals(false, Solution.knightBoardCapture(field));
         field = new int[][] {
             {0, 0, 0, 0, 1, 0, 0, 0},
             {0, 0, 0, 0, 0, 1, 0, 0},
@@ -84,7 +91,7 @@ public class MainTest{
             {0, 0, 0, 0, 0, 1, 0, 0},
             {1, 0, 0, 0, 0, 0, 0, 0}
         };
-        assertEquals(Solution.knightBoardCapture(field), false);
+        assertEquals(false, Solution.knightBoardCapture(field));
     }
     public static void main(String[] args){
         Solution.prt();
@@ -100,6 +107,8 @@ public class MainTest{
         TestFifth();
         // SixthGroup 
         TestSixth();
+        // SevensGroup
+        TestSevens();
         // EightsGroup
         TestEights();
     }
